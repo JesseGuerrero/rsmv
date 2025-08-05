@@ -2181,6 +2181,7 @@ function ExtractFilesScript(p: UiScriptProps) {
 	let run = () => {
 		let output = new UIScriptOutput();
 		let outdir = output.makefs("out");
+		console.log(outdir)
 		let files = stringToFileRange(filestext);
 		output.run(extractCacheFiles, outdir, p.source, { files, mode, batched, batchlimit: -1, edit: false, skipread: false }, decoderflags);
 		p.onRun(output, `${mode}:${batched}:${Object.entries(decoderflags).map(([k, v]) => `${k}=${v}`).join(",")}:${filestext}`);
